@@ -41,7 +41,10 @@
 #define MBEDTLS_ECP_DP_SECP256R1_ENABLED
 #define MBEDTLS_ECP_DP_SECP384R1_ENABLED
 #define MBEDTLS_KEY_EXCHANGE_ECDHE_ECDSA_ENABLED
-#define MBEDTLS_SSL_PROTO_TLS1_2
+#define MBEDTLS_SSL_PROTO_TLS1_3
+#define MBEDTLS_SSL_CLI_C
+#define MBEDTLS_SSL_SESSION_TICKETS
+#define MBEDTLS_SSL_TLS1_3_TICKET_NONCE_LENGTH 32
 
 /* mbed TLS modules */
 #define MBEDTLS_AES_C
@@ -72,6 +75,14 @@
 #define MBEDTLS_SSL_TLS_C
 #define MBEDTLS_X509_CRT_PARSE_C
 #define MBEDTLS_X509_USE_C
+
+#define MBEDTLS_SSL_TICKET_C
+
+#define MBEDTLS_HKDF_C
+#define MBEDTLS_SHA256_C
+#define MBEDTLS_SHA384_C
+
+#define MBEDTLS_SSL_KEEP_PEER_CERTIFICATE
 
 /* For test certificates */
 #define MBEDTLS_BASE64_C
@@ -114,7 +125,7 @@
 /* These defines are present so that the config modifying scripts can enable
  * them during tests/scripts/test-ref-configs.pl */
 //#define MBEDTLS_USE_PSA_CRYPTO
-//#define MBEDTLS_PSA_CRYPTO_C
+#define MBEDTLS_PSA_CRYPTO_C
 
 /* Error messages and TLS debugging traces
  * (huge code size increase, needed for tests/ssl-opt.sh) */
